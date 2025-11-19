@@ -17,7 +17,7 @@ telefone_soc char(20) NOT NULL unique
 );
 
 create table produtos(
-cod_prod int not null primary key,
+cod_prod int auto_increment primary key,
 nome_prod varchar (100) not null,
 valor_prod decimal(10,2) check(valor_prod >= 0)
 );
