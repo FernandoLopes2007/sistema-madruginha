@@ -179,10 +179,41 @@ namespace sistema_madruga
             }
         }
         // FIM DO CADASTRO (vai virar DLL depois)
+
+        // LISTAGEM
         static void AreaListagem()
         {
+            while (true)
+            {
+                Console.WriteLine("Escolha uma opção para listar");
+                Console.WriteLine("1 - Funcionário\n2 - Fornecedor\n3 - Produto\n4 - Sócio\nq - Voltar");
+                string escolha = Console.ReadLine();
 
+                switch (escolha)
+                {
+                    case "1":
+                        Console.WriteLine("-- Lista de funcionários --");
+                        break;
+                    case "2":
+                        Console.WriteLine("-- Lista de fornecedores --");
+                        break;
+                    case "3":
+                        Console.WriteLine("-- Lista de produtos --");
+                        break;
+                    case "4":
+                        Console.WriteLine("-- Lista de sócios --");
+                        break;
+                    case "q":
+                        Console.WriteLine("-- Voltando --");
+                        return;
+                    default:
+                        Console.WriteLine("-- Opção Incorreta --");
+                        break;
+                }
+            }
         }
+
+        // FIM DA LISTAGEM (vai virar DLL depois)
         static void AreaAlteracao()
         {
 
