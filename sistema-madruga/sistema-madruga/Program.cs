@@ -188,7 +188,6 @@ namespace sistema_madruga
             Console.Clear();
             while (true)
             {
-                Console.Clear();
                 Console.WriteLine("-- Escolha uma opção para listar --");
                 Console.WriteLine("1 - Funcionário\n2 - Fornecedor\n3 - Produto\n4 - Sócio\nq - Voltar");
                 string escolha = Console.ReadLine();
