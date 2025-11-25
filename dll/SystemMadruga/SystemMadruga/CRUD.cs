@@ -10,9 +10,12 @@ namespace SystemMadruga
     public class CRUD
     {
         static string conexao = "server=127.0.0.1;uid=root;pwd=root;database=madrugas";
+        static CRUD crud = new CRUD();
         // CADASTRO
         public void CadastroFuncionario()
         {
+            Console.Clear();
+            Console.WriteLine("-- Cadastro de Funcionário --\n");
             Console.WriteLine("Digite o nome do funcionário:");
             string nome = Console.ReadLine();
             Console.WriteLine("Digite o telefone do funcionário:");
@@ -45,6 +48,8 @@ namespace SystemMadruga
         }
         public void CadastroFornecedor()
         {
+            Console.Clear();
+            Console.WriteLine("-- Cadastro de Fornecedor --\n");
             Console.WriteLine("Digite o nome do fornecedor:");
             string nome = Console.ReadLine();
             Console.WriteLine("Digite o telefone do fornecedor:");
@@ -68,6 +73,8 @@ namespace SystemMadruga
         }
         public void CadastroProduto()
         {
+            Console.Clear();
+            Console.WriteLine("-- Cadastro de Produtos --\n");
             Console.WriteLine("Digite o nome do produto:");
             string nome = Console.ReadLine();
             Console.WriteLine("Digite o valor do produto");
@@ -87,6 +94,8 @@ namespace SystemMadruga
 
         public void CadastroSocio()
         {
+            Console.Clear();
+            Console.WriteLine("-- Cadastro de Sócios --\n");
             Console.WriteLine("Digite o nome do sócio:");
             string nome = Console.ReadLine();
             Console.WriteLine("Digite o email do sócio:");
@@ -108,6 +117,202 @@ namespace SystemMadruga
                 Console.WriteLine("Sócio cadastrado");
             }
         }
+
         // FIM DO CADASTRO
+        // LISTAGEM
+
+        public void ListarFuncionario()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Lista de funcionários --\n");
+            using (var con = new MySqlConnection(conexao))
+            {
+                con.Open();
+                string sqlSelect = "select * from funcionarios";
+                var cmd = new MySqlCommand(sqlSelect, con);
+                var rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Console.WriteLine(rdr[0] + " - " + rdr[1] + " Telefone: " + rdr[2] + " " + rdr[3] + " " + rdr[4] + "\n    " + rdr[5] + " Endereço: " + rdr[6] + " Sexo: " + rdr[7]);
+                }
+            }
+        }
+
+        public void ListarFornecedor()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Lista de fornecedores --\n");
+            using (var con = new MySqlConnection(conexao))
+            {
+                con.Open();
+                string sqlSelect = "select * from fornecedores";
+                var cmd = new MySqlCommand(sqlSelect, con);
+                var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Console.WriteLine(rdr[0] + " - " + rdr[1] + " Telefone: " + rdr[2] + " " + rdr[3] + " Endereço: " + rdr[4]);
+                }
+            }
+        }
+
+        public void ListarProduto()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Lista de produtos --\n");
+            using (var con = new MySqlConnection(conexao))
+            {
+                con.Open();
+                string sqlSelect = "select * from produtos";
+                var cmd = new MySqlCommand(sqlSelect, con);
+                var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Console.WriteLine(rdr[0] + " - " + rdr[1] + " Valor: R$" + rdr[2]);
+                }
+            }
+        }
+
+        public void ListarSocio()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Lista de sócios --\n");
+            using (var con = new MySqlConnection(conexao))
+            {
+                con.Open();
+                string sqlSelect = "select * from socios";
+                var cmd = new MySqlCommand(sqlSelect, con);
+                var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Console.WriteLine(rdr[0] + " - " + rdr[1] + " " + rdr[2] + " CPF: " + rdr[3] + " Telefone: " + rdr[4]);
+                }
+            }
+        }
+
+        // FIM DA LISTAGEM
+        // ALTERAÇÃO
+
+        public void AlterarFuncionario()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Lista de funcionários --\n");
+            crud.ListarFuncionario();
+            Console.WriteLine("Digite o código do funcionário a ser alterado");
+            int cod = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o novo nome do funcionário:");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Digite o novo telefone do funcionário:");
+            string telefone = Console.ReadLine();
+            Console.WriteLine("Digite o novo email do funcionário:");
+            string email = Console.ReadLine();
+            Console.WriteLine("Digite o novo endereço do funcionário:");
+            string endereco = Console.ReadLine();
+            Console.WriteLine("Digite o novo estado civíl do funcionário (Casado / Solteiro):");
+            string civil = Console.ReadLine();
+            Console.WriteLine("Digite o novo sexo do funcionário (F = feminino / M = masculino):");
+            string sexo = Console.ReadLine();
+            Console.WriteLine("Digite a nova senha do funcionário:");
+            string senha = Console.ReadLine();
+            using (var con = new MySqlConnection(conexao))
+            {
+                con.Open();
+                string sqlUpdate = "Update funcionarios set nome_func = @nome, telefone_func = @telefone, email_func = @email, status_func = @civil, endereço_func = @endereco, sexo_func = @sexo, senha_func = @senha  where cod_func = @cod";
+                var cmd = new MySqlCommand(sqlUpdate, con);
+                cmd.Parameters.AddWithValue("@cod", cod);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@civil", civil);
+                cmd.Parameters.AddWithValue("@endereco", endereco);
+                cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@senha", senha);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Funcionário alterado");
+            }
+        }
+
+        public void AlterarFornecedor()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Lista de fornecedores --\n");
+            crud.ListarFornecedor();
+            Console.WriteLine("Digite o código do fornecedor a ser alterado");
+            int cod = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o novo nome do fornecedor:");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Digite o novo telefone do fornecedor:");
+            string telefone = Console.ReadLine();
+            Console.WriteLine("Digite o novo email do fornecedor:");
+            string email = Console.ReadLine();
+            Console.WriteLine("Digite o novo endereço do fornecedor:");
+            string endereco = Console.ReadLine();
+            using (var con = new MySqlConnection(conexao))
+            {
+                con.Open();
+                string sqlUpdate = ("Update fornecedores set nome_forn = @nome, telefone_forn = @telefone, email_forn = @email, endereco_forn = @endereco where cod_forn = @cod");
+                var cmd = new MySqlCommand(sqlUpdate, con);
+                cmd.Parameters.AddWithValue("@cod", cod);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@endereco", endereco);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Fornecedor alterado");
+            }
+        }
+        public void AlterarProduto()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Lista de produtos --\n");
+            crud.ListarProduto();
+            Console.WriteLine("Digite o código do produto a ser alterado");
+            int cod = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o novo nome do produto:");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Digite o novo valor do produto");
+            double valor = double.Parse(Console.ReadLine());
+
+            using (var con = new MySqlConnection(conexao))
+            {
+                con.Open();
+                string sqlUpdate = ("Update produtos set nome_prod = @nome, valor_prod = @valor where cod_prod = @cod");
+                var cmd = new MySqlCommand(sqlUpdate, con);
+                cmd.Parameters.AddWithValue("@cod", cod);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@valor", valor);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Produto atualizado");
+            }
+        }
+        public void AlterarSocio()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Lista de sócios --\n");
+            crud.ListarSocio();
+            Console.WriteLine("Digite o código do sócio a ser alterado");
+            int cod = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o novo nome do sócio:");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Digite o novo email do sócio:");
+            string email = Console.ReadLine();
+            Console.WriteLine("Digite o novo CPF do sócio:");
+            string cpf = Console.ReadLine();
+            Console.WriteLine("Digite o novo telefone do sócio");
+            string telefone = Console.ReadLine();
+            using (var con = new MySqlConnection(conexao))
+            {
+                con.Open();
+                string sqlUpdate = ("Update socios set nome_soc = @nome, email_soc = @email, cpf_soc = @cpf, telefone_soc = @telefone where cod_soc = @cod");
+                var cmd = new MySqlCommand(sqlUpdate, con);
+                cmd.Parameters.AddWithValue("@cod", cod);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Sócio atualizado");
+            }
+        }
     }
 }
