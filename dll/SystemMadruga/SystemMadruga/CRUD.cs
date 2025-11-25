@@ -1,16 +1,19 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 
 namespace SystemMadruga
 {
     public class CRUD
     {
         static string conexao = "server=127.0.0.1;uid=root;pwd=root;database=madrugas";
-        static CRUD crud = new CRUD();
+
         // CADASTRO
         public void CadastroFuncionario()
         {
@@ -43,7 +46,7 @@ namespace SystemMadruga
                 cmd.Parameters.AddWithValue("@sexo", sexo);
                 cmd.Parameters.AddWithValue("@senha", senha);
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("Funcionário cadastrado");
+                Console.WriteLine("-- Funcionário cadastrado --");
             }
         }
         public void CadastroFornecedor()
@@ -68,7 +71,7 @@ namespace SystemMadruga
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@endereco", endereco);
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("Fornecedor cadastrado");
+                Console.WriteLine("-- Fornecedor cadastrado --");
             }
         }
         public void CadastroProduto()
@@ -87,7 +90,7 @@ namespace SystemMadruga
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@valor", valor);
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("Produto cadastrado");
+                Console.WriteLine("-- Produto cadastrado --");
             }
 
         }
@@ -114,7 +117,7 @@ namespace SystemMadruga
                 cmd.Parameters.AddWithValue("cpf", cpf);
                 cmd.Parameters.AddWithValue("telefone", telefone);
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("Sócio cadastrado");
+                Console.WriteLine("-- Sócio cadastrado --");
             }
         }
 
@@ -197,7 +200,7 @@ namespace SystemMadruga
         {
             Console.Clear();
             Console.WriteLine("-- Lista de funcionários --\n");
-            crud.ListarFuncionario();
+            ListarFuncionario();
             Console.WriteLine("Digite o código do funcionário a ser alterado");
             int cod = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite o novo nome do funcionário:");
@@ -228,7 +231,7 @@ namespace SystemMadruga
                 cmd.Parameters.AddWithValue("@sexo", sexo);
                 cmd.Parameters.AddWithValue("@senha", senha);
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("Funcionário alterado");
+                Console.WriteLine("-- Funcionário alterado --");
             }
         }
 
@@ -236,7 +239,7 @@ namespace SystemMadruga
         {
             Console.Clear();
             Console.WriteLine("-- Lista de fornecedores --\n");
-            crud.ListarFornecedor();
+            ListarFornecedor();
             Console.WriteLine("Digite o código do fornecedor a ser alterado");
             int cod = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite o novo nome do fornecedor:");
@@ -258,14 +261,14 @@ namespace SystemMadruga
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@endereco", endereco);
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("Fornecedor alterado");
+                Console.WriteLine("-- Fornecedor alterado --");
             }
         }
         public void AlterarProduto()
         {
             Console.Clear();
             Console.WriteLine("-- Lista de produtos --\n");
-            crud.ListarProduto();
+            ListarProduto();
             Console.WriteLine("Digite o código do produto a ser alterado");
             int cod = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite o novo nome do produto:");
@@ -282,14 +285,14 @@ namespace SystemMadruga
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@valor", valor);
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("Produto atualizado");
+                Console.WriteLine("-- Produto atualizado --");
             }
         }
         public void AlterarSocio()
         {
             Console.Clear();
             Console.WriteLine("-- Lista de sócios --\n");
-            crud.ListarSocio();
+            ListarSocio();
             Console.WriteLine("Digite o código do sócio a ser alterado");
             int cod = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite o novo nome do sócio:");
@@ -311,7 +314,7 @@ namespace SystemMadruga
                 cmd.Parameters.AddWithValue("@cpf", cpf);
                 cmd.Parameters.AddWithValue("@telefone", telefone);
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("Sócio atualizado");
+                Console.WriteLine("-- Sócio atualizado --");
             }
         }
     }
