@@ -14,28 +14,66 @@ namespace SystemMadruga
     {
         static string conexao = "server=127.0.0.1;uid=root;pwd=root;database=madrugas";
 
-
         //METODOS
+        static string PegarNome()
+        {
+            Console.WriteLine("Digite o nome");
+            return Console.ReadLine();
+        }
 
+        static string PegarTelefone()
+        {
+            Console.WriteLine("Digite o telefone");
+            return Console.ReadLine();
+        }
+        static string PegarEmail()
+        {
+            Console.WriteLine("Digite o email");
+            return Console.ReadLine();
+        }
+        static string PegarEndereco()
+        {
+            Console.WriteLine("Digite o endereço");
+            return Console.ReadLine();
+        }
+        static string PegarCivil()
+        {
+            Console.WriteLine("Digite o estado civíl (Casado/Solteiro)");
+            return Console.ReadLine();
+        }
+        static string PegarSexo()
+        {
+            Console.WriteLine("Digite o sexo (F = Feminino/M = Masculino)");
+            return Console.ReadLine();
+        }
+        static string PegarSenha()
+        {
+            Console.WriteLine("Digite a senha");
+            return Console.ReadLine();
+        }
+        static double PegarValor()
+        {
+            Console.WriteLine("Digite o valor");
+            return double.Parse(Console.ReadLine());
+        }
+        static string PegarCpf()
+        {
+            Console.WriteLine("Digite o CPF");
+            return Console.ReadLine();
+        }
+        
         // CADASTRO
         public void CadastroFuncionario()
         {
             Console.Clear();
             Console.WriteLine("-- Cadastro de Funcionário --\n");
-            Console.WriteLine("Digite o nome do funcionário:");
-            string nome = Console.ReadLine();
-            Console.WriteLine("Digite o telefone do funcionário:");
-            string telefone = Console.ReadLine();
-            Console.WriteLine("Digite o email do funcionário:");
-            string email = Console.ReadLine();
-            Console.WriteLine("Digite o endereço do funcionário:");
-            string endereco = Console.ReadLine();
-            Console.WriteLine("Digite o estado civíl do funcionário (Casado / Solteiro):");
-            string civil = Console.ReadLine();
-            Console.WriteLine("Digite o sexo do funcionário (F = feminino / M = masculino):");
-            string sexo = Console.ReadLine();
-            Console.WriteLine("Digite a senha do funcionário:");
-            string senha = Console.ReadLine();
+            string nome = PegarNome();
+            string telefone = PegarTelefone();
+            string email = PegarEmail();
+            string endereco = PegarEndereco();
+            string civil = PegarCivil();
+            string sexo = PegarSexo();
+            string senha = PegarSenha();
 
             using (var con = new MySqlConnection(conexao))
             {
@@ -56,14 +94,10 @@ namespace SystemMadruga
         {
             Console.Clear();
             Console.WriteLine("-- Cadastro de Fornecedor --\n");
-            Console.WriteLine("Digite o nome do fornecedor:");
-            string nome = Console.ReadLine();
-            Console.WriteLine("Digite o telefone do fornecedor:");
-            string telefone = Console.ReadLine();
-            Console.WriteLine("Digite o email do fornecedor:");
-            string email = Console.ReadLine();
-            Console.WriteLine("Digite o endereço do fornecedor:");
-            string endereco = Console.ReadLine();
+            string nome = PegarNome();
+            string telefone = PegarTelefone();
+            string email = PegarEmail();
+            string endereco = PegarEndereco();
 
             using (var con = new MySqlConnection(conexao))
             {
@@ -81,10 +115,8 @@ namespace SystemMadruga
         {
             Console.Clear();
             Console.WriteLine("-- Cadastro de Produtos --\n");
-            Console.WriteLine("Digite o nome do produto:");
-            string nome = Console.ReadLine();
-            Console.WriteLine("Digite o valor do produto");
-            double valor = double.Parse(Console.ReadLine());
+            string nome = PegarNome();
+            double valor = PegarValor();
 
             using (var con = new MySqlConnection(conexao))
             {
@@ -102,14 +134,10 @@ namespace SystemMadruga
         {
             Console.Clear();
             Console.WriteLine("-- Cadastro de Sócios --\n");
-            Console.WriteLine("Digite o nome do sócio:");
-            string nome = Console.ReadLine();
-            Console.WriteLine("Digite o email do sócio:");
-            string email = Console.ReadLine();
-            Console.WriteLine("Digite o CPF do sócio:");
-            string cpf = Console.ReadLine();
-            Console.WriteLine("Digite o telefone do sócio");
-            string telefone = Console.ReadLine();
+            string nome = PegarNome();
+            string email = PegarEmail();
+            string cpf = PegarCpf();
+            string telefone = PegarTelefone();
 
             using (var con = new MySqlConnection(conexao))
             {
