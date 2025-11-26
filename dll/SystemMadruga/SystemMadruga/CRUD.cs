@@ -14,6 +14,9 @@ namespace SystemMadruga
     {
         static string conexao = "server=127.0.0.1;uid=root;pwd=root;database=madrugas";
 
+
+        //METODOS
+
         // CADASTRO
         public void CadastroFuncionario()
         {

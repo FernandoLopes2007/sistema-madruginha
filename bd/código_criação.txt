@@ -34,9 +34,9 @@ nome_func varchar(100) not null,
 telefone_func char(20) unique,
 email_func varchar (100) unique,
 data_emissao_func datetime default now(),
-status_func varchar(25) check(status_func = "Casado" or status_func = "Solteiro"),
+status_func varchar(25) check(status_func = "Casado" or status_func = "Solteiro" or status_func = "casado" or status_func = "solteiro" or status_func = "CASADO" or status_func = "SOLTEIRO"),
 endereço_func varchar(200),
-sexo_func char (1)  check (sexo_func = "F" or sexo_func = "M"),
+sexo_func char (1)  check (sexo_func = "F" or sexo_func = "M" or sexo_func = "f" or sexo_func = "m"),
 senha_func varchar(100) not null
 );
 
