@@ -193,6 +193,23 @@ namespace SystemMadruga
             }
         }
 
+        public void ListarCorte()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Lista de cortes --\n");
+            using (var con = new MySqlConnection(conexao))
+            {
+                con.Open();
+                string sqlSelect("SELECT \r\n    co.cod_corte,\r\n    func.nome_func AS Barbeiro,\r\n\tcli.nome_cli AS Cliente,\r\n    co.data_corte\r\nFROM corte co\r\nJOIN clientes cli ON cli.cod_cli = co.cod_cli\r\nJOIN funcionarios func ON func.cod_func = co.cod_func;");
+                var cmd = new MySqlCommand(sqlSelect, con);
+                var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Console.WriteLine(rdr[0] + rdr[1] + rdr[2] + rdr[3]);
+                }
+            }
+        }
+
         // FIM DA LISTAGEM
         // ALTERAÇÃO
 

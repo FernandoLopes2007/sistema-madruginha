@@ -78,5 +78,17 @@ saldo decimal(10,2) check(saldo >= 0),
 foreign key (cod_prod) references produtos (cod_prod)
 );
 
+create table corte
+(
+	cod_corte int auto_increment,
+    cod_cli int not null,
+    cod_func int not null,
+    data_corte datetime not null,
+    
+    constraint cod_corte primary key (cod_corte),
+    constraint cod_cli foreign key (cod_cli) references clientes (cod_cli),
+    constraint cod_func foreign key (cod_func) references funcionarios (cod_func)
+);
+
 
 

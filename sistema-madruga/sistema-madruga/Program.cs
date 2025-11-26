@@ -89,7 +89,7 @@ namespace sistema_madruga
             {
                 Console.Clear();
                 Console.WriteLine("-- Escolha uma opção para listar --");
-                Console.WriteLine("1 - Funcionário\n2 - Fornecedor\n3 - Produto\n4 - Sócio\nq - Voltar");
+                Console.WriteLine("1 - Funcionário\n2 - Fornecedor\n3 - Produto\n4 - Sócio\n5 - Cortes\nq - Voltar");
                 string escolha = Console.ReadLine();
 
                 switch (escolha)
@@ -108,6 +108,10 @@ namespace sistema_madruga
                         break;
                     case "4":
                         crud.ListarSocio();
+                        Console.ReadKey();
+                        break;
+                    case "5":
+                        crud.ListarCorte();
                         Console.ReadKey();
                         break;
                     case "q":
