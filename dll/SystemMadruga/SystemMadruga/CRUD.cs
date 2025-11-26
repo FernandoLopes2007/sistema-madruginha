@@ -17,8 +17,8 @@ namespace SystemMadruga
         //METODOS
         static string PegarNome()
         {
-            Console.WriteLine("Digite o nome");
-            return Console.ReadLine();
+                Console.WriteLine("Digite o nome");
+                return Console.ReadLine();
         }
 
         static string PegarTelefone()
@@ -38,6 +38,7 @@ namespace SystemMadruga
         }
         static string PegarCivil()
         {
+            
             Console.WriteLine("Digite o estado civíl (Casado/Solteiro)");
             return Console.ReadLine();
         }
@@ -61,7 +62,20 @@ namespace SystemMadruga
             Console.WriteLine("Digite o CPF");
             return Console.ReadLine();
         }
-        
+
+        public void Login()
+        {
+            string email = PegarEmail();
+            string senha = PegarSenha();
+            using (var con = new MySqlConnection(conexao))
+                con.Open();
+                string sqlSelect = ("select * from funcionarios where email_func = @email and senha_func = @senha");
+                var cmd = new MySqlCommand(sqlSelect);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@senha", senha);
+                cmd.ExecuteNonQuery();
+        }
+        // FIM DOS METODOS
         // CADASTRO
         public void CadastroFuncionario()
         {
