@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36705.20 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11222.15 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sistema-madruga", "sistema-madruga\sistema-madruga.csproj", "{50C46959-5C1D-49C9-8AFC-86C797F9C036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "caixa_madruga", "caixa_madruga\caixa_madruga.csproj", "{F7A70EEF-EC7C-4BC8-9215-C3EBB6AC9865}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{50C46959-5C1D-49C9-8AFC-86C797F9C036}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50C46959-5C1D-49C9-8AFC-86C797F9C036}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50C46959-5C1D-49C9-8AFC-86C797F9C036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7A70EEF-EC7C-4BC8-9215-C3EBB6AC9865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A70EEF-EC7C-4BC8-9215-C3EBB6AC9865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A70EEF-EC7C-4BC8-9215-C3EBB6AC9865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7A70EEF-EC7C-4BC8-9215-C3EBB6AC9865}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
