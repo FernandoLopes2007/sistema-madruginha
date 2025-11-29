@@ -154,6 +154,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmMovimentacao";
             this.Text = "frmMovimentacao";
+            this.Load += new System.EventHandler(this.frmMovimentacao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numValor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

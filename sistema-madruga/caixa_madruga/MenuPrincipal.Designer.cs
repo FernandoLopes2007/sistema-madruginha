@@ -49,6 +49,7 @@
             this.menuMovimentacoes.Name = "menuMovimentacoes";
             this.menuMovimentacoes.Size = new System.Drawing.Size(128, 24);
             this.menuMovimentacoes.Text = "Movimentações";
+            this.menuMovimentacoes.Click += new System.EventHandler(this.menuMovimentacoes_Click);
             // 
             // menuNovaMovimentacao
             // 
