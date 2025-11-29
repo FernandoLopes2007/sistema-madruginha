@@ -22,6 +22,15 @@ namespace caixa_madruga
             InitializeComponent();
         }
 
+        private void LimparMovimentacoesAntesDeSair()
+        {
+            try
+            {
+                File.WriteAllText(caminhoDados, ""); // apaga tudo
+            }
+            catch { }
+        }
+
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             CarregarMovimentacoes();
@@ -184,6 +193,11 @@ namespace caixa_madruga
         private void MenuSair_Click(object sender, EventArgs e)
         {
             this.Close();
+        {
+            LimparMovimentacoesAntesDeSair();
+            Application.Exit();
         }
+
     }
+}
 }

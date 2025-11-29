@@ -31,5 +31,10 @@ namespace caixa_madruga.Movimentação
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

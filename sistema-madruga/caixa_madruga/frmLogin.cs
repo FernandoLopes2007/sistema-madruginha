@@ -22,7 +22,7 @@ namespace caixa_madruga
             string usuario = txtUsuario.Text.Trim();
             string senha = txtSenha.Text;
 
-            MessageBox.Show("Você clicou em Entrar!");
+            
 
 
             if (usuario == "administrador" && senha == "ADM@2025")
