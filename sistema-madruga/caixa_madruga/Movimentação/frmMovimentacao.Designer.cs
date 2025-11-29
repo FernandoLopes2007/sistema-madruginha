@@ -153,7 +153,7 @@
             this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.label1);
             this.Name = "frmMovimentacao";
-            this.Text = "frmMovimentacao";
+            this.Text = "Cadastro de movimentação";
             this.Load += new System.EventHandler(this.frmMovimentacao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numValor)).EndInit();
             this.ResumeLayout(false);
