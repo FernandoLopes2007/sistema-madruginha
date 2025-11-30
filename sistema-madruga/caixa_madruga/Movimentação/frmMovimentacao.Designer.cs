@@ -119,28 +119,31 @@
             // 
             // btnSalvar
             // 
+            this.btnSalvar.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSalvar.Location = new System.Drawing.Point(132, 370);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(101, 44);
             this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCancelar.Location = new System.Drawing.Point(476, 370);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(108, 44);
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmMovimentacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
