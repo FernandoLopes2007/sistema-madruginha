@@ -26,7 +26,7 @@ namespace caixa_madruga
         {
             try
             {
-                File.WriteAllText(caminhoDados, ""); // apaga tudo
+                File.WriteAllText(caminhoDados, ""); 
             }
             catch { }
         }
@@ -52,7 +52,7 @@ namespace caixa_madruga
             }
         }
 
-        // ABRIR FORM DE MOVIMENTAÇÃO
+        
         private void menuNovaMovimentacao_Click(object sender, EventArgs e)
         {
             frmMovimentacao frm = new frmMovimentacao();
@@ -65,7 +65,7 @@ namespace caixa_madruga
             }
         }
 
-        // CARREGAR DO TXT AO ABRIR O PROGRAMA
+        
         private void CarregarMovimentacoes()
         {
             if (!File.Exists(caminhoDados))
@@ -97,7 +97,7 @@ namespace caixa_madruga
             }
         }
 
-        // SALVAR NO TXT
+        
         private void SalvarMovimentacoes()
         {
             using (StreamWriter sw = new StreamWriter(caminhoDados, false))
@@ -109,7 +109,7 @@ namespace caixa_madruga
             }
         }
 
-        // MENU: GERAR RELATÓRIO
+        
         private void gerarRelatóriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (movimentacoes.Count == 0)
@@ -132,7 +132,7 @@ namespace caixa_madruga
                     sw.WriteLine("---------------------------------------------");
                     sw.WriteLine($"Gerado em: {DateTime.Now:dd/MM/yyyy HH:mm}\n");
 
-                    // ================= ENTRADAS =================
+                   
                     var entradas = movimentacoes.Where(m => m.Tipo == "Entrada").ToList();
                     sw.WriteLine("=== ENTRADAS ===");
 
@@ -150,7 +150,7 @@ namespace caixa_madruga
 
                     sw.WriteLine($"TOTAL DE ENTRADAS: R$ {entradas.Sum(m => m.Valor):F2}\n");
 
-                    // ================= SAÍDAS =================
+                    
                     var saidas = movimentacoes.Where(m => m.Tipo == "Saída").ToList();
                     sw.WriteLine("=== SAÍDAS ===");
 
@@ -168,7 +168,7 @@ namespace caixa_madruga
 
                     sw.WriteLine($"TOTAL DE SAÍDAS: R$ {saidas.Sum(m => m.Valor):F2}\n");
 
-                    // ================= POR DIA =================
+                   
                     sw.WriteLine("=== TOTAL POR DIA ===");
                     var porDia = movimentacoes
                         .GroupBy(m => m.Data.Date)
@@ -182,7 +182,7 @@ namespace caixa_madruga
 
                     sw.WriteLine("\n---------------------------------------------");
 
-                    // TOTAL GERAL
+                   
                     sw.WriteLine($"TOTAL GERAL DO CAIXA: R$ {movimentacoes.Sum(m => m.Valor):F2}");
                 }
 
