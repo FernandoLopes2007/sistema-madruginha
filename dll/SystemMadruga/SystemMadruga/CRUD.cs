@@ -22,7 +22,7 @@ namespace SystemMadruga
            
             do
             {
-                Console.WriteLine("Digite o nome");
+                Console.WriteLine("Digite o noome");
                 nomeusuario = Console.ReadLine(); 
 
              
