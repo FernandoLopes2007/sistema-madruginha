@@ -17,12 +17,34 @@ namespace SystemMadruga
         //METODOS
         static string PegarNome()
         {
+            string nomeusuario;
+
+           
+            do
+            {
                 Console.WriteLine("Digite o nome");
-                return Console.ReadLine();
+                nomeusuario = Console.ReadLine(); 
+
+             
+                if (string.IsNullOrWhiteSpace(nomeusuario))
+                {
+                    Console.WriteLine("Erro: Digite um nome válido e que não esteja em branco.");
+                }
+
+             
+            } while (string.IsNullOrWhiteSpace(nomeusuario));
+
+            
+            Console.WriteLine("Nome registrado com sucesso!");
+
+       
+            return nomeusuario;
         }
+
 
         static string PegarTelefone()
         {
+            string telefone =PegarTelefone();
             Console.WriteLine("Digite o telefone");
             return Console.ReadLine();
         }
