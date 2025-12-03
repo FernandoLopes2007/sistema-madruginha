@@ -17,7 +17,6 @@ namespace sistema_madruga
         static CRUD crud = new CRUD();
         static void Main(string[] args)
         {
-            crud.Login();
             while (true)
             {
                 Console.Clear();
